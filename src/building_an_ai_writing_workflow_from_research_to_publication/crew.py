@@ -1,7 +1,8 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import WebsiteSearchTool, JSONSearchTool, FileReadTool, FileWriterTool, ScrapeWebsiteTool
+from crewai_tools import EXASearchTool, JSONSearchTool, FileReadTool, FileWriterTool, ScrapeWebsiteTool
 from crewai_tools import SerperDevTool
+from src.building_an_ai_writing_workflow_from_research_to_publication.tools.tavily_search import TavilySearchTool
 
 @CrewBase
 class AiWritingWorkflowCrew:
@@ -10,17 +11,16 @@ class AiWritingWorkflowCrew:
     def __init__(self):
         super().__init__()
         # Initialize tools
-        self.website_search = WebsiteSearchTool()
-        self.json_search = JSONSearchTool()
+        self.website_search = EXASearchTool()
+        self.tavily = TavilySearchTool()
         self.file_read = FileReadTool()
-        self.serper = SerperDevTool()
         self.file_write = FileWriterTool()
         self.scraper = ScrapeWebsiteTool()
 
     @agent
     def research_agent(self) -> Agent:
         config = self.agents_config['research_agent']
-        config['tools'] = [self.website_search, self.serper, self.scraper]
+        config['tools'] = [self.tavily, self.website_search, self.scraper]
         return Agent(**config)
 
     @agent
