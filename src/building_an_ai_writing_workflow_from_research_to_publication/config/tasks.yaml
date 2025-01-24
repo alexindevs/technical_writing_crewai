@@ -1,0 +1,37 @@
+find_next_undrafted_article:
+  description: Find the next undrafted article (marked as backlog) from the list - {json_array}
+  expected_output: Next undrafted article title, description and subtitle
+  async_execution: false
+  agent: research_agent
+
+gather_research_data:
+  description: Gather relevant data for the selected article using the tools at your disposal
+  expected_output: Relevant research data for the article
+  async_execution: false
+  agent: research_agent
+  context:
+    - find_next_undrafted_article
+
+create_article_outline:
+  description: Create an outline for the article using the FileReadTool to read the outline template at outline_template.txt, then save the outline to the 'outlines' directory with the name of the article as a text file.
+  expected_output: Outline for the article saved to the 'outlines' directory, and the file name
+  async_execution: false
+  agent: outline_writer
+  context:
+    - gather_research_data
+
+write_first_draft:
+  description: Write an 800-word draft based on the outline, leaving space for code samples and screenshots, then save the draft to the 'drafts' directory under the name of the article, initial draft.
+  expected_output: First draft of the article saved to the 'drafts' directory and file name
+  async_execution: false
+  agent: draft_writer
+  context:
+    - create_article_outline
+
+edit_draft:
+  description: Edit the draft to match the user's writing style (file located at writing_sample.txt) and check for grammatical errors, then save the finalized draft back to the 'drafts' directory under the name of the article, final draft.
+  expected_output: Finalized draft that matches the user's writing style and is free of grammatical errors and file name
+  async_execution: false
+  agent: editor_agent
+  context:
+    - write_first_draft

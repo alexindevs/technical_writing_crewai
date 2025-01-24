@@ -1,0 +1,55 @@
+ARTICLE OUTLINE TEMPLATE
+
+1. TITLE
+   - Primary Title
+   - Subtitle
+
+2. OVERVIEW
+   - Brief introduction to the topic
+   - Contextual background
+   - Significance of the subject
+
+3. OBJECTIVES
+   - List specific learning outcomes
+   - Key takeaways for readers
+   - Skills or knowledge readers will gain
+
+4. TARGET AUDIENCE
+   - Primary audience description
+   - Assumed prior knowledge
+   - Skill level targeting
+
+5. TECHNICAL REQUIREMENTS
+   - Prerequisites
+   - Tools or technologies needed
+   - Recommended setup
+
+6. CONTENT OUTLINE
+   - Main section headings
+   - Subsections
+   - Key points for each section
+   - Placeholder notes for code samples
+   - Placeholder notes for screenshots/images
+
+7. GUIDELINES
+   - Desired article length
+   - Writing style characteristics
+   - Tone and approach
+   - Technical depth level
+
+8. TIMELINE
+   - Estimated completion time
+   - Key milestones
+   - Research phase duration
+   - Writing and editing phases
+
+9. REFERENCES
+   - Potential source materials
+   - Academic or technical references
+   - Documentation links
+   - Recommended further reading
+
+10. ADDITIONAL NOTES
+    - Any special considerations
+    - Unique angle or perspective
+    - Personal insights to include

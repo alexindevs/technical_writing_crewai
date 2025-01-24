@@ -1,0 +1,20 @@
+[project]
+name = "AI_Writer_Assistant"
+version = "0.1.0"
+description = "building_an_ai_writing_workflow_from_research_to_publication using crewAI"
+authors = [{ name = "Alexin", email = "you@example.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.86.0,<1.0.0"
+]
+
+[project.scripts]
+building_an_ai_writing_workflow_from_research_to_publication = "building_an_ai_writing_workflow_from_research_to_publication.main:run"
+run_crew = "building_an_ai_writing_workflow_from_research_to_publication.main:run"
+train = "building_an_ai_writing_workflow_from_research_to_publication.main:train"
+replay = "building_an_ai_writing_workflow_from_research_to_publication.main:replay"
+test = "building_an_ai_writing_workflow_from_research_to_publication.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
