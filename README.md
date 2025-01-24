@@ -1,54 +1,95 @@
-# BuildingAnAiWritingWorkflowFromResearchToPublication Crew
+# Technical Writing Workflow Crew
 
-Welcome to the BuildingAnAiWritingWorkflowFromResearchToPublication Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+Hey there! 👋 I'm Alexin, a backend engineer and aspiring technical writer who got tired of the manual process of researching, outlining, and drafting articles. So, I decided to build my own AI-powered writing workflow using CrewAI to make my life easier.
 
-## Installation
+## What is This?
 
-Ensure you have Python >=3.10 <=3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+This is my personal technical writing assistant – a CrewAI-powered workflow that helps me go from article idea to first draft with minimal manual intervention. It's basically my writing buddy that does the heavy lifting of research, outlining, and initial drafting.
 
-First, if you haven't already, install uv:
+## Prerequisites
 
-```bash
-pip install uv
-```
+- Python 3.10-3.13
+- UV (for dependency management)
+- OpenAI API Key
 
-Next, navigate to your project directory and install the dependencies:
+## Setup and Installation
 
-(Optional) Lock the dependencies and install them by using the CLI command:
+1. Install UV:
+
+    ```bash
+        pip install uv
+    ```
+
+2. Install dependencies:
+
 ```bash
 crewai install
 ```
-### Customizing
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+## Configuration Files You'll Need to Customize
 
-- Modify `src/building_an_ai_writing_workflow_from_research_to_publication/config/agents.yaml` to define your agents
-- Modify `src/building_an_ai_writing_workflow_from_research_to_publication/config/tasks.yaml` to define your tasks
-- Modify `src/building_an_ai_writing_workflow_from_research_to_publication/crew.py` to add your own logic, tools and specific args
-- Modify `src/building_an_ai_writing_workflow_from_research_to_publication/main.py` to add custom inputs for your agents and tasks
+### 1. OpenAI API Key
 
-## Running the Project
+Add your `OPENAI_API_KEY` to the `.env` file.
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+### 2. Writing Sample
 
-```bash
-$ crewai run
+Create a `writing_sample.txt` in the project root. This helps the editor agent understand your personal writing style. Include:
+
+- A few of your technical articles
+- Blog posts
+- Writing examples that showcase your tone and technical depth
+
+### 3. Outline Template
+
+Modify `outline_template.txt` with your preferred article outline structure. I've included a default template, but you might want to customize it to fit your specific writing needs.
+
+### 4. Article Queue
+
+Create `article_queue.json` to define your writing pipeline:
+
+```json
+[
+    {
+        "title": "Your Article Title",
+        "subtitle": "Descriptive Subtitle",
+        "description": "Longer description of what you want the article to be about",
+        "status": "backlog"
+    }
+]
 ```
 
-This command initializes the building_an_ai_writing_workflow_from_research_to_publication Crew, assembling the agents and assigning them tasks as defined in your configuration.
+### Customization Paths
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+- `config/agents.yaml`: Define agent roles and capabilities
+- `config/tasks.yaml`: Set up task configurations
+- `crew.py`: Add custom logic, tools, and specific arguments
+- `main.py`: Add custom inputs for agents and tasks
 
-## Understanding Your Crew
+## Running the Workflow
 
-The building_an_ai_writing_workflow_from_research_to_publication Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+From the project root:
 
-## Support
+```bash
+crewai run
+```
 
-For support, questions, or feedback regarding the BuildingAnAiWritingWorkflowFromResearchToPublication Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+This will:
 
-Let's create wonders together with the power and simplicity of crewAI.
+1. Find the next article in the backlog
+2. Research the topic
+3. Create an outline
+4. Write a first draft
+5. Edit the draft to match your style
+
+## My Journey
+
+As a backend engineer diving into technical writing, I wanted a tool that could help me be more consistent and efficient. This CrewAI workflow is my experiment in building a personal writing assistant. It's a work in progress, and I'm learning so much about AI agents and workflow automation!
+
+## Support and Feedback
+
+- Having issues? Open a GitHub issue
+- Want to collaborate? Send a PR
+- Just want to chat about AI Agents? I'm all ears!
+
+Enjoy the workflow, and happy writing! 🚀✍️
